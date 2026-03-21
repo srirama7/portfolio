@@ -65,9 +65,13 @@ mobileMenu.querySelectorAll('a').forEach(link => {
 
 // ===== Scroll Reveal Animation =====
 const observerOptions = {
-    threshold: 0.15,
-    rootMargin: '0px 0px -50px 0px'
+    threshold: 0.05,
+    rootMargin: '0px 0px 0px 0px'
 };
+
+const revealElements = document.querySelectorAll(
+    '.section-title, .skill-card, .project-card, .other-project-card, .about-grid, .contact-wrapper, .timeline-item'
+);
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -102,9 +106,16 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-document.querySelectorAll(
-    '.section-title, .skill-card, .project-card, .other-project-card, .about-grid, .contact-wrapper, .timeline-item'
-).forEach(el => observer.observe(el));
+revealElements.forEach(el => observer.observe(el));
+
+// Fallback: force all elements visible after 3 seconds in case observer doesn't trigger
+setTimeout(() => {
+    revealElements.forEach(el => {
+        if (!el.classList.contains('visible')) {
+            el.classList.add('visible');
+        }
+    });
+}, 3000);
 
 // ===== Counter Animation =====
 const counterObserver = new IntersectionObserver((entries) => {
