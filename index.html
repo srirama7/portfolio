@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amogha Bhat MR | Software Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>body { cursor: none; } a, button { cursor: none; }</style>
+</head>
+<body>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- Ambient Gradient Orbs -->
+    <div class="gradient-orbs" aria-hidden="true">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+        <div class="orb orb-4"></div>
+    </div>
+
+    <!-- Floating Particles -->
+    <canvas id="particles" aria-hidden="true"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <a href="#hero" class="nav-logo">A.</a>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="resume.pdf" target="_blank" class="nav-resume-btn">Resume</a></li>
+        </ul>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="resume.pdf" target="_blank">Resume</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <p class="hero-greeting">Hello, I'm</p>
+            <h1 class="hero-name">
+                <span class="name-line">Amogha Bhat MR</span>
+            </h1>
+            <p class="hero-title">
+                <span class="typed-text" id="typedText"></span><span class="cursor">|</span>
+            </p>
+            <p class="hero-desc">
+                I build full-stack web apps, AI-powered tools, and cross-platform mobile experiences with clean code and creative design.
+            </p>
+            <div class="hero-cta">
+                <a href="#projects" class="btn btn-primary">View My Work</a>
+                <a href="resume.pdf" target="_blank" class="btn btn-outline">Download Resume</a>
+            </div>
+            <div class="hero-social-strip">
+                <a href="https://github.com/srirama7" target="_blank" aria-label="GitHub">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                </a>
+                <a href="https://linkedin.com/in/amogha-bhat-mr" target="_blank" aria-label="LinkedIn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                </a>
+                <a href="https://leetcode.com/u/amoghabhat74" target="_blank" aria-label="LeetCode">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0 0 13.483 0zm-2.866 12.815a1.38 1.38 0 0 0-1.38 1.382 1.38 1.38 0 0 0 1.38 1.382H20.79a1.38 1.38 0 0 0 1.38-1.382 1.38 1.38 0 0 0-1.38-1.382z"/></svg>
+                </a>
+                <a href="https://srirama7.github.io/portfolio/" target="_blank" aria-label="Portfolio" id="portfolioLink">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                </a>
+            </div>
+            <div class="hero-scroll">
+                <div class="scroll-indicator">
+                    <div class="scroll-dot"></div>
+                </div>
+                <span>Scroll Down</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-number">01.</span> About Me
+            </h2>
+            <div class="about-grid">
+                <div class="about-image">
+                    <div class="image-frame">
+                        <img src="photo.jpeg" alt="Amogha Bhat MR" />
+                    </div>
+                </div>
+                <div class="about-text">
+                    <div class="glass-card">
+                        <p>
+                            I'm a results-driven Computer Science graduate with 9 months of professional experience
+                            as an <span class="highlight">AI Engineer &amp; Software Developer</span>. I specialize in building full-stack web applications,
+                            AI-powered tools, and cross-platform mobile apps.
+                        </p>
+                        <p>
+                            Proficient in <span class="highlight">Python, JavaScript, TypeScript, React, Next.js, and FastAPI</span>,
+                            I have a strong foundation in software development, machine learning, and REST API
+                            integration with a proven ability to deliver end-to-end solutions.
+                        </p>
+                        <p>
+                            I graduated with a B.E. in Computer Science &amp; Engineering from
+                            NMAM Institute of Technology, Nitte (CGPA: 7.98). When I'm not coding,
+                            you'll find me exploring new technologies, solving problems on LeetCode,
+                            or contributing to open-source projects.
+                        </p>
+                        <div class="about-stats">
+                            <div class="stat">
+                                <span class="stat-number" data-count="30">0</span>+
+                                <span class="stat-label">Projects</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number" data-count="9">0</span>+
+                                <span class="stat-label">Months Exp.</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number" data-count="10">0</span>+
+                                <span class="stat-label">Technologies</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="section" id="experience">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-number">02.</span> Experience
+            </h2>
+            <div class="timeline">
+                <div class="timeline-item glass-card">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">Oct 2025 &mdash; Mar 2026</div>
+                    <h3>AI Engineer</h3>
+                    <h4>Colligence Research</h4>
+                    <ul>
+                        <li>Developed <span class="highlight">Circle</span> &mdash; an in-house team collaboration app with AI-powered chatbot, real-time video calling, and screen sharing.</li>
+                        <li>Built <span class="highlight">Foundry</span> &mdash; an AI-enabled ERP web application for managing inventory, accounting, invoicing, and resource planning.</li>
+                        <li>Integrated REST APIs and LLMs into web-based AI tools using Python and FastAPI.</li>
+                    </ul>
+                </div>
+                <div class="timeline-item glass-card">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">Jan 2025 &mdash; Apr 2025</div>
+                    <h3>Software Developer Intern</h3>
+                    <h4>Center for Development of Telematics (CDot - PSU)</h4>
+                    <ul>
+                        <li>Developed an internship registration web application using JSP, JavaScript, CSS, and MySQL.</li>
+                        <li>Implemented user authentication, login, and session management.</li>
+                        <li>Designed and optimized MySQL database schema for applicant data.</li>
+                    </ul>
+                </div>
+                <div class="timeline-item glass-card">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">Jan 2025 &mdash; Apr 2025</div>
+                    <h3>Front End Developer Intern</h3>
+                    <h4>Dlithe</h4>
+                    <ul>
+                        <li>Built responsive web interfaces using React.js, HTML5, CSS3, and JavaScript.</li>
+                        <li>Ensured cross-browser compatibility and mobile responsiveness across projects.</li>
+                    </ul>
+                </div>
+                <div class="timeline-item glass-card">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">Nov 2023 &mdash; Jan 2024</div>
+                    <h3>Front End Developer Intern</h3>
+                    <h4>Internshala</h4>
+                    <ul>
+                        <li>Completed front-end development training covering HTML, CSS, JavaScript, and responsive design.</li>
+                        <li>Built capstone projects using DOM manipulation and UI/UX design principles.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section" id="skills">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-number">03.</span> Skills & Tech
+            </h2>
+            <div class="skills-grid">
+                <div class="skill-card glass-card">
+                    <div class="skill-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                    </div>
+                    <h3>Languages</h3>
+                    <div class="skill-tags">
+                        <span>Python</span><span>JavaScript</span><span>TypeScript</span><span>Java</span><span>C/C++</span><span>Dart</span>
+                    </div>
+                </div>
+                <div class="skill-card glass-card">
+                    <div class="skill-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                    </div>
+                    <h3>Frontend</h3>
+                    <div class="skill-tags">
+                        <span>React.js</span><span>Next.js</span><span>HTML5</span><span>CSS3</span><span>Bootstrap</span><span>Tailwind</span>
+                    </div>
+                </div>
+                <div class="skill-card glass-card">
+                    <div class="skill-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+                    </div>
+                    <h3>Backend & DB</h3>
+                    <div class="skill-tags">
+                        <span>FastAPI</span><span>Node.js</span><span>Firebase</span><span>MySQL</span><span>Firestore</span>
+                    </div>
+                </div>
+                <div class="skill-card glass-card">
+                    <div class="skill-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 0-4 4c0 2 2 3 2 6h4c0-3 2-4 2-6a4 4 0 0 0-4-4z"></path><line x1="10" y1="16" x2="14" y2="16"></line><line x1="10" y1="19" x2="14" y2="19"></line><line x1="11" y1="22" x2="13" y2="22"></line></svg>
+                    </div>
+                    <h3>AI & ML</h3>
+                    <div class="skill-tags">
+                        <span>LLMs</span><span>Multi-Agent Systems</span><span>NLP</span><span>Computer Vision</span>
+                    </div>
+                </div>
+                <div class="skill-card glass-card">
+                    <div class="skill-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                    </div>
+                    <h3>Tools & Platforms</h3>
+                    <div class="skill-tags">
+                        <span>Git</span><span>GitHub</span><span>Android Studio</span><span>Flutter</span><span>Capacitor</span><span>REST APIs</span>
+                    </div>
+                </div>
+                <div class="skill-card glass-card">
+                    <div class="skill-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                    </div>
+                    <h3>Certifications</h3>
+                    <div class="skill-tags">
+                        <span>Google Cybersecurity</span><span>Google Networks</span><span>NPTEL Java</span><span>NPTEL Python</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section" id="projects">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-number">04.</span> Featured Projects
+            </h2>
+            <div class="projects-grid">
+
+                <!-- Featured: Grok Notepad -->
+                <article class="project-card glass-card">
+                    <div class="project-image">
+                        <div class="project-placeholder gradient-1">
+                            <img src="notepad-screenshot.png" alt="Grok Notepad Screenshot" style="width:100%;height:100%;object-fit:cover;">
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-top">
+                            <span class="project-label">Featured Project</span>
+                            <div class="project-links">
+                                <a href="https://github.com/srirama7/grok-notepad" target="_blank" aria-label="GitHub" title="View Code">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                                </a>
+                                <a href="https://srirama7.github.io/grok-notepad/" target="_blank" aria-label="Live Demo" title="Live Demo">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                                </a>
+                            </div>
+                        </div>
+                        <h3>Grok Notepad</h3>
+                        <p>An AI-powered notebook featuring Groku &mdash; an intelligent AI agent that can answer any question. Integrates Word, Excel, and PowerPoint tools in a single workspace.</p>
+                        <div class="project-tech">
+                            <span>HTML</span><span>JavaScript</span><span>AI Agent</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Featured: Bhoomitayi -->
+                <article class="project-card glass-card">
+                    <div class="project-image">
+                        <div class="project-placeholder gradient-2">
+                            <img src="realestate-screenshot.png" alt="Bhoomitayi Screenshot" style="width:100%;height:100%;object-fit:cover;">
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-top">
+                            <span class="project-label">Featured Project</span>
+                            <div class="project-links">
+                                <a href="https://github.com/srirama7/bhoomitayi" target="_blank" aria-label="GitHub" title="View Code">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                                </a>
+                                <a href="https://bhoomitayi.vercel.app" target="_blank" aria-label="Live Demo" title="Live Demo">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                                </a>
+                            </div>
+                        </div>
+                        <h3>Bhoomitayi - Real Estate Platform</h3>
+                        <p>A full-stack real estate platform connecting property sellers and buyers. Features property listings, search, filtering, and transaction management.</p>
+                        <div class="project-tech">
+                            <span>Next.js</span><span>TypeScript</span><span>Firebase</span><span>Capacitor</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Featured: GST Invoice Calculator -->
+                <article class="project-card glass-card">
+                    <div class="project-image">
+                        <div class="project-placeholder gradient-3">
+                            <img src="gst-screenshot.png" alt="GST Invoice Calculator Screenshot" style="width:100%;height:100%;object-fit:cover;">
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-top">
+                            <span class="project-label">Featured Project</span>
+                            <div class="project-links">
+                                <a href="https://github.com/srirama7/gst-calculator" target="_blank" aria-label="GitHub" title="View Code">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                                </a>
+                                <a href="https://srirama7.github.io/gst-calculator/" target="_blank" aria-label="Live Demo" title="Live Demo">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                                </a>
+                            </div>
+                        </div>
+                        <h3>GST Invoice Calculator</h3>
+                        <p>A GST invoice calculator with automated tax computation and PDF generation. Integrated Firebase for data storage and deployed as an Android app via Capacitor.</p>
+                        <div class="project-tech">
+                            <span>React</span><span>Firebase</span><span>Capacitor</span><span>Vite</span><span>Tailwind CSS</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Featured: Music App -->
+                <article class="project-card glass-card">
+                    <div class="project-image">
+                        <div class="project-placeholder gradient-4">
+                            <img src="musicapp-screenshot.png" alt="Music App Screenshot" style="width:100%;height:100%;object-fit:cover;">
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-top">
+                            <span class="project-label">Featured Project</span>
+                            <div class="project-links">
+                                <a href="https://github.com/srirama7/music-app-download" target="_blank" aria-label="GitHub" title="View Code">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                                </a>
+                                <a href="https://srirama7.github.io/music-app-download/" target="_blank" aria-label="Live Demo" title="Live Demo">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                                </a>
+                            </div>
+                        </div>
+                        <h3>Music App</h3>
+                        <p>A music streaming and download application with audio playback controls. Built Android APK releases for mobile distribution via GitHub Releases.</p>
+                        <div class="project-tech">
+                            <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Android</span>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- Other Projects -->
+            <h3 class="other-projects-title">Other Noteworthy Projects</h3>
+            <div class="other-projects-grid">
+
+                <div class="other-project-card glass-card">
+                    <div class="other-project-top">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                    </div>
+                    <h4>Circle - Team Collaboration App</h4>
+                    <p>An in-house team collaboration app with AI-powered chatbot, real-time video calling, and screen sharing for seamless internal communication.</p>
+                    <div class="project-tech"><span>React</span><span>FastAPI</span><span>LLMs</span><span>WebRTC</span></div>
+                </div>
+
+                <div class="other-project-card glass-card">
+                    <div class="other-project-top">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                        <a href="https://github.com/srirama7/soap-website" target="_blank" aria-label="GitHub">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                        </a>
+                    </div>
+                    <h4>Soap Website</h4>
+                    <p>A beautifully designed product website for a soap brand with modern UI and responsive layout.</p>
+                    <div class="project-tech"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+                </div>
+
+                <div class="other-project-card glass-card">
+                    <div class="other-project-top">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                        <a href="https://github.com/srirama7/chatify" target="_blank" aria-label="GitHub">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                        </a>
+                    </div>
+                    <h4>Chatify</h4>
+                    <p>A real-time messaging application with instant communication, media sharing, and a clean user-friendly interface.</p>
+                    <div class="project-tech"><span>JavaScript</span><span>Node.js</span><span>WebSockets</span></div>
+                </div>
+
+                <div class="other-project-card glass-card">
+                    <div class="other-project-top">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                    </div>
+                    <h4>Portfolio Website</h4>
+                    <p>This dark-themed portfolio with glassmorphism design, ambient gradient orbs, interactive particles, and smooth scroll animations.</p>
+                    <div class="project-tech"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+                </div>
+
+                <div class="other-project-card glass-card">
+                    <div class="other-project-top">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                        <a href="https://github.com/srirama7/sticker-maker" target="_blank" aria-label="GitHub">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                        </a>
+                    </div>
+                    <h4>Sticker Maker</h4>
+                    <p>A cross-platform sticker creation app built with Flutter for creating and managing custom stickers.</p>
+                    <div class="project-tech"><span>Dart</span><span>Flutter</span><span>Mobile</span></div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-number">05.</span> Get In Touch
+            </h2>
+            <div class="contact-wrapper">
+                <div class="contact-text glass-card">
+                    <h3>Let's Work Together</h3>
+                    <p>
+                        I'm currently open to new opportunities and collaborations. Whether you have
+                        a project in mind, a question, or just want to say hello &mdash; my inbox is
+                        always open!
+                    </p>
+                    <div class="contact-links">
+                        <a href="mailto:amoghabhat74@gmail.com" class="contact-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                            <span>amoghabhat74@gmail.com</span>
+                        </a>
+                        <a href="https://github.com/srirama7" target="_blank" class="contact-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                            <span>github.com/srirama7</span>
+                        </a>
+                        <a href="https://linkedin.com/in/amogha-bhat-mr" target="_blank" class="contact-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                            <span>linkedin.com/in/amogha-bhat-mr</span>
+                        </a>
+                        <a href="https://leetcode.com/u/amoghabhat74" target="_blank" class="contact-item">
+                            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0 0 13.483 0zm-2.866 12.815a1.38 1.38 0 0 0-1.38 1.382 1.38 1.38 0 0 0 1.38 1.382H20.79a1.38 1.38 0 0 0 1.38-1.382 1.38 1.38 0 0 0-1.38-1.382z"/></svg>
+                            <span>LeetCode Profile</span>
+                        </a>
+                    </div>
+                    <a href="mailto:amoghabhat74@gmail.com" class="btn btn-primary" style="margin-top: 2rem; display: inline-flex;">
+                        Say Hello
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>Designed & Built by <span class="highlight">Amogha Bhat MR</span></p>
+            <div class="footer-socials">
+                <a href="https://github.com/srirama7" target="_blank" aria-label="GitHub">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                </a>
+                <a href="https://linkedin.com/in/amogha-bhat-mr" target="_blank" aria-label="LinkedIn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                </a>
+                <a href="https://leetcode.com/u/amoghabhat74" target="_blank" aria-label="LeetCode">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0 0 13.483 0zm-2.866 12.815a1.38 1.38 0 0 0-1.38 1.382 1.38 1.38 0 0 0 1.38 1.382H20.79a1.38 1.38 0 0 0 1.38-1.382 1.38 1.38 0 0 0-1.38-1.382z"/></svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Music Toggle -->
+    <button class="music-toggle" id="musicToggle" aria-label="Toggle Music">
+        <div class="music-bars">
+            <span></span><span></span><span></span><span></span>
+        </div>
+    </button>
+
+    <!-- Jimmy AI Assistant -->
+    <button class="jimmy-btn" id="jimmyBtn" aria-label="Talk to Jimmy">🐕</button>
+    <div class="jimmy-chat" id="jimmyChat">
+        <div class="jimmy-header">
+            <span>🐕</span>
+            <div>
+                <div class="jimmy-name">Jimmy</div>
+                <div class="jimmy-status">Your portfolio guide</div>
+            </div>
+            <button class="jimmy-close" id="jimmyClose">&times;</button>
+        </div>
+        <div class="jimmy-messages" id="jimmyMessages">
+            <div class="jimmy-msg bot">Woof! 🐕 I'm Jimmy, Amogha's portfolio assistant! Ask me anything about his skills, projects, experience, or contact info. I can also navigate you around, toggle dark/light mode, or change font size!</div>
+        </div>
+        <div class="jimmy-input-wrap">
+            <input type="text" class="jimmy-input" id="jimmyInput" placeholder="Ask Jimmy anything..." autocomplete="off">
+            <button class="jimmy-send" id="jimmySend">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
