@@ -508,7 +508,7 @@ function getJimmyResponse(input) {
 
     // Contact
     if (q.includes('contact') || q.includes('email') || q.includes('reach') || q.includes('hire') || q.includes('connect')) {
-        return 'You can reach Amogha at: Email: amoghabhat74@gmail.com | GitHub: github.com/srirama7 | LinkedIn: linkedin.com/in/amogha-bhat-mr | LeetCode: leetcode.com/u/amoghabhat74 🐕';
+        return 'You can reach Amogha at: Email: amoghabhat74@gmail.com | GitHub: github.com/srirama7 | LinkedIn: linkedin.com/in/amogha-bhat-555235249 | LeetCode: leetcode.com/u/amogh74 🐕';
     }
 
     // Education
