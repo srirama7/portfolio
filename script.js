@@ -309,6 +309,160 @@ document.querySelectorAll('a, button, .skill-card, .project-card, .other-project
     el.addEventListener('mouseleave', () => cursorRing.classList.remove('hover'));
 });
 
+// ===== Scroll Progress Bar =====
+const scrollProgress = document.getElementById('scrollProgress');
+window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / docHeight) * 100;
+    if (scrollProgress) scrollProgress.style.width = scrollPercent + '%';
+});
+
+// ===== Mouse Trail Effect =====
+const trailDots = [];
+const trailCount = 12;
+for (let i = 0; i < trailCount; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'trail-dot';
+    dot.style.opacity = (1 - i / trailCount) * 0.5;
+    dot.style.width = (6 - i * 0.3) + 'px';
+    dot.style.height = (6 - i * 0.3) + 'px';
+    document.body.appendChild(dot);
+    trailDots.push({ el: dot, x: 0, y: 0 });
+}
+
+let trailMouse = { x: 0, y: 0 };
+document.addEventListener('mousemove', (e) => {
+    trailMouse.x = e.clientX;
+    trailMouse.y = e.clientY;
+});
+
+function animateTrail() {
+    let prevX = trailMouse.x, prevY = trailMouse.y;
+    trailDots.forEach((dot, i) => {
+        const speed = 0.3 - i * 0.015;
+        dot.x += (prevX - dot.x) * speed;
+        dot.y += (prevY - dot.y) * speed;
+        dot.el.style.left = dot.x - 3 + 'px';
+        dot.el.style.top = dot.y - 3 + 'px';
+        prevX = dot.x;
+        prevY = dot.y;
+    });
+    requestAnimationFrame(animateTrail);
+}
+animateTrail();
+
+// ===== 3D Tilt Effect on Cards =====
+function addTiltEffect(element) {
+    element.addEventListener('mousemove', (e) => {
+        const rect = element.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = (y - centerY) / centerY * -5;
+        const rotateY = (x - centerX) / centerX * 5;
+        element.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px)`;
+    });
+    element.addEventListener('mouseleave', () => {
+        element.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
+    });
+}
+
+document.querySelectorAll('.skill-card, .other-project-card, .contact-text').forEach(addTiltEffect);
+
+// ===== Parallax on Scroll for Orbs =====
+window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    const orbs = document.querySelectorAll('.orb');
+    orbs.forEach((orb, i) => {
+        const speed = (i + 1) * 0.02;
+        orb.style.transform = `translateY(${scrollY * speed}px)`;
+    });
+});
+
+// ===== Click Ripple Effect =====
+document.addEventListener('click', (e) => {
+    const ripple = document.createElement('div');
+    ripple.className = 'ripple';
+    ripple.style.left = e.clientX - 10 + 'px';
+    ripple.style.top = e.clientY - 10 + 'px';
+    ripple.style.width = '20px';
+    ripple.style.height = '20px';
+    ripple.style.position = 'fixed';
+    document.body.appendChild(ripple);
+    setTimeout(() => ripple.remove(), 600);
+});
+
+// ===== Random Sparkles on Mouse Move =====
+let sparkleThrottle = 0;
+document.addEventListener('mousemove', (e) => {
+    sparkleThrottle++;
+    if (sparkleThrottle % 8 !== 0) return;
+    const sparkle = document.createElement('div');
+    sparkle.className = 'sparkle';
+    sparkle.style.left = e.clientX + (Math.random() - 0.5) * 30 + 'px';
+    sparkle.style.top = e.clientY + (Math.random() - 0.5) * 30 + 'px';
+    sparkle.style.background = ['#8b5cf6', '#3b82f6', '#ec4899', '#06b6d4', '#fff'][Math.floor(Math.random() * 5)];
+    document.body.appendChild(sparkle);
+    setTimeout(() => sparkle.remove(), 1000);
+});
+
+// ===== Staggered Text Reveal for Hero Description =====
+const heroDesc = document.querySelector('.hero-desc');
+if (heroDesc) {
+    const text = heroDesc.textContent;
+    heroDesc.innerHTML = '';
+    text.split(' ').forEach((word, i) => {
+        const span = document.createElement('span');
+        span.textContent = word + ' ';
+        span.style.display = 'inline-block';
+        span.style.opacity = '0';
+        span.style.transform = 'translateY(10px)';
+        span.style.transition = `opacity 0.4s ease ${0.8 + i * 0.03}s, transform 0.4s ease ${0.8 + i * 0.03}s`;
+        heroDesc.appendChild(span);
+        setTimeout(() => {
+            span.style.opacity = '1';
+            span.style.transform = 'translateY(0)';
+        }, 100);
+    });
+}
+
+// ===== Magnetic Effect on Buttons =====
+document.querySelectorAll('.btn').forEach(btn => {
+    btn.addEventListener('mousemove', (e) => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+    });
+    btn.addEventListener('mouseleave', () => {
+        btn.style.transform = 'translate(0, 0)';
+    });
+});
+
+// ===== Reveal Animation on Scroll with Stagger =====
+const staggerObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const children = entry.target.querySelectorAll('.contact-item');
+            children.forEach((child, i) => {
+                child.style.opacity = '0';
+                child.style.transform = 'translateX(-20px)';
+                child.style.transition = `opacity 0.4s ease ${i * 0.1}s, transform 0.4s ease ${i * 0.1}s`;
+                setTimeout(() => {
+                    child.style.opacity = '1';
+                    child.style.transform = 'translateX(0)';
+                }, 50);
+            });
+            staggerObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.3 });
+
+const contactLinks = document.querySelector('.contact-links');
+if (contactLinks) staggerObserver.observe(contactLinks);
+
 // ===== Ambient Music (Web Audio API) =====
 let audioCtx = null;
 let musicPlaying = false;
