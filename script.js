@@ -602,7 +602,7 @@ function getJimmyResponse(input) {
         if (q.includes('project')) { document.querySelector('#projects').scrollIntoView({behavior:'smooth'}); return 'Here are the amazing projects! 🐕'; }
         if (q.includes('contact')) { document.querySelector('#contact').scrollIntoView({behavior:'smooth'}); return 'Here\'s how to get in touch! 🐕'; }
         if (q.includes('top') || q.includes('home') || q.includes('hero')) { document.querySelector('#hero').scrollIntoView({behavior:'smooth'}); return 'Back to the top! 🐕'; }
-        if (q.includes('resume')) { window.open('resume.pdf', '_blank'); return 'Opening Amogha\'s resume for you! 📄'; }
+        if (q.includes('resume')) { window.open('resume.pdf?v=32eb6073105f', '_blank'); return 'Opening Amogha\'s resume for you! 📄'; }
     }
 
     // Theme toggle
@@ -693,7 +693,7 @@ function getJimmyResponse(input) {
 
     // Resume
     if (q.includes('resume') || q.includes('cv')) {
-        window.open('resume.pdf', '_blank');
+        window.open('resume.pdf?v=32eb6073105f', '_blank');
         return 'Opening the resume for you! 📄🐕';
     }
 
